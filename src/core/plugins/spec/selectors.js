@@ -226,7 +226,7 @@ export const requestFor = (state, path, method) => {
 
 export const allowTryItOutFor = () => {
   // This is just a hook for now.
-  return true
+  return false
 }
 
 // Get the parameter value by parameter name
