@@ -72,9 +72,6 @@ export default class StandaloneLayout extends React.Component {
                   { schemes && schemes.size ? (
                     <Schemes schemes={ schemes } specActions={ specActions } />
                   ) : null }
-                  { securityDefinitions ? (
-                    <AuthorizeBtn />
-                  ) : null }
                 </Col>
               </div>
             ) : null }
@@ -82,9 +79,6 @@ export default class StandaloneLayout extends React.Component {
             { (!schemes || !schemes.size) && securityDefinitions ? (
               <div className="scheme-container">
                 <Col className="schemes wrapper" mobile={12}>
-                  { securityDefinitions ? (
-                    <AuthorizeBtn />
-                  ) : null }
                 </Col>
               </div>
             ) : null }
@@ -100,12 +94,6 @@ export default class StandaloneLayout extends React.Component {
                 </Col>
               </Row>
           </div> }
-
-          <Row>
-            <Col>
-              <OnlineValidatorBadge />
-            </Col>
-          </Row>
       </Container>
     )
   }
