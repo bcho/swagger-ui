@@ -111,6 +111,11 @@ export default class ParameterRow extends Component {
 
         </td>
 
+        <td className="col parameters-col_example">
+          <Markdown options={{html: true, typographer: true, linkify: false}}
+                     source={ param.get('example', '') }/>
+        </td>
+
       </tr>
     )
 

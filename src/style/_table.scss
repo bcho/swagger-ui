@@ -81,8 +81,11 @@ table
     }
 }
 
-.parameters-col_description
+.parameters-col_description,
+.parameters-col_example
 {
+    width: 40%;
+
     p
     {
         font-size: 14px;
