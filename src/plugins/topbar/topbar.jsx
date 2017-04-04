@@ -40,8 +40,6 @@ export default class Topbar extends React.Component {
           <div className="wrapper">
             <div className="topbar-wrapper">
               <Link href="#" title="Swagger UX">
-                <img height="30" width="30" src={ Logo } alt="Swagger UX"/>
-                <span>swagger</span>
               </Link>
               <div className="download-url-wrapper">
                 <input className="download-url-input" type="text" onChange={ this.onUrlChange } value={this.state.url} disabled={isLoading} style={inputStyle} />
