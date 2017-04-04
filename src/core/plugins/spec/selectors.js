@@ -1,5 +1,5 @@
 import { createSelector } from "reselect"
-import { fromJS, Set, Map, List } from "immutable"
+import { fromJS, Set, Map, OrderedMap, List } from "immutable"
 
 const DEFAULT_TAG = "default"
 
@@ -194,7 +194,7 @@ export const operationsWithTags = createSelector(
       if(tags.count() < 1)
         return taggedMap.update(DEFAULT_TAG, List(), ar => ar.push(op))
       return tags.reduce( (res, tag) => res.update(tag, List(), (ar) => ar.push(op)), taggedMap )
-    }, Map())
+    }, OrderedMap())
   }
 )
 
