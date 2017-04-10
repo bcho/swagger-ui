@@ -34,7 +34,6 @@ export default class Topbar extends React.Component {
   }
 
   downloadUrl = () => {
-    console.log(this.state)
     this.props.specActions.updateUrl(this.state.url)
     let auth
     if (this.state.authUser && this.state.authPassword) {

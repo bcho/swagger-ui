@@ -2,6 +2,7 @@
 
 import { createSelector } from "reselect"
 import { Map } from "immutable"
+const parseUrl = require('url').parse
 
 export default function downloadUrlPlugin (toolbox) {
   let { fn } = toolbox
@@ -10,13 +11,20 @@ export default function downloadUrlPlugin (toolbox) {
     download: (url, auth)=> ({ errActions, specSelectors, specActions }) => {
       let { fetch } = fn
       url = url || specSelectors.url()
-      specActions.updateLoadingStatus("loading")
+      const parsedUrl = parseUrl(url)
+
       const headers = {
         "Accept": "application/json"
+      }
+      if (parsedUrl.auth) {
+        headers['Authorization'] = `Basic ${btoa(parsedUrl.auth)}`
       }
       if (auth) {
         headers['Authorization'] = auth
       }
+
+      console.log(headers)
+      specActions.updateLoadingStatus("loading")
       fetch({
         url,
         loadSpec: true,
