@@ -19,6 +19,16 @@ export const url = createSelector(
   spec => spec.get("url")
 )
 
+export const authUser = createSelector(
+  state,
+  spec => spec.get("authUser") || ""
+)
+
+export const authPassword = createSelector(
+  state,
+  spec => spec.get("authPassword") || ""
+)
+
 export const specStr = createSelector(
   state,
   spec => spec.get("spec") || ""

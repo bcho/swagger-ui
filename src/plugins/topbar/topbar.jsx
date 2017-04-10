@@ -7,7 +7,11 @@ export default class Topbar extends React.Component {
 
   constructor(props, context) {
     super(props, context)
-    this.state = { url: props.specSelectors.url() }
+    this.state = {
+      url: props.specSelectors.url(),
+      authUser: props.specSelectors.authUser(),
+      authPassword: props.specSelectors.authPassword(),
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -19,9 +23,25 @@ export default class Topbar extends React.Component {
     this.setState({url: value})
   }
 
+  onAuthUserChange =(e)=> {
+    let {target: {value}} = e
+    this.setState({authUser: value})
+  }
+
+  onAuthPasswordChange =(e)=> {
+    let {target: {value}} = e
+    this.setState({authPassword: value})
+  }
+
   downloadUrl = () => {
+    console.log(this.state)
     this.props.specActions.updateUrl(this.state.url)
-    this.props.specActions.download(this.state.url)
+    let auth
+    if (this.state.authUser && this.state.authPassword) {
+      const cred = btoa(`${this.state.authUser}:${this.state.authPassword}`)
+      auth = `Basic ${cred}`
+    }
+    this.props.specActions.download(this.state.url, auth)
   }
 
   render() {
@@ -43,6 +63,8 @@ export default class Topbar extends React.Component {
               </Link>
               <div className="download-url-wrapper">
                 <input className="download-url-input" type="text" onChange={ this.onUrlChange } value={this.state.url} disabled={isLoading} style={inputStyle} />
+                <input className="download-url-input" type="text" onChange={ this.onAuthUserChange } value={this.state.authUser} disabled={isLoading} style={inputStyle} />
+                <input className="download-url-input" type="text" onChange={ this.onAuthPasswordChange } value={this.state.authPassword} disabled={isLoading} style={inputStyle} />
                 <Button className="download-url-button" onClick={ this.downloadUrl }>Explore</Button>
               </div>
             </div>
