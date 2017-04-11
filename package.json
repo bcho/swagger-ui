@@ -39,6 +39,7 @@
     "btoa": "^1.1.2",
     "deep-extend": "0.4.1",
     "expect": "1.20.2",
+    "get-stdin": "^5.0.1",
     "getbase": "^2.8.2",
     "immutable": "^3.x.x",
     "js-yaml": "^3.5.5",
@@ -46,6 +47,7 @@
     "lodash": "4.17.2",
     "matcher": "^0.1.2",
     "memoizee": "0.4.1",
+    "mustache": "^2.3.0",
     "promise-worker": "^1.1.1",
     "react": "^15.4.0",
     "react-addons-perf": "0.14.8",
@@ -130,5 +132,8 @@
   ],
   "optionalDependencies": {
     "webpack-dev-server": "1.14.0"
+  },
+  "bin": {
+    "swagger-ui-inline": "./bin/inline"
   }
 }

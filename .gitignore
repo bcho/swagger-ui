@@ -6,3 +6,4 @@ npm-debug.log
 .eslintcache
 dev-helpers/*.yml
 dev-helpers/*.yaml
+dist/inline.html
