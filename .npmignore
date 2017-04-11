@@ -7,3 +7,4 @@
 !dist/swagger-ui.css
 !dist/swagger-ui.css.map
 !dist/inline.html.tmpl
+!bin/inline
